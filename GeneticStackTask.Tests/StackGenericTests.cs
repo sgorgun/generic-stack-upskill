@@ -1,5 +1,6 @@
 using System;
 using GenericStackTask;
+using System.Linq;
 using NUnit.Framework;
 
 namespace GeneticStackTask.Tests

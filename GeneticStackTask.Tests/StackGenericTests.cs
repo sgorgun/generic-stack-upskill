@@ -51,10 +51,10 @@ namespace GeneticStackTask.Tests
         [Order(2)]
         public void ToArray_Test()
         {
-            T[] copy = _stack.Reverse().ToArray(); 
+            T[] copy = _stack.ToArray(); 
             Assert.Multiple((() =>
             {
-                CollectionAssert.AreEqual(_array, copy);
+                CollectionAssert.AreEqual(_array.Reverse(), copy);
                 Assert.AreNotSame(_array, copy);
             }));
         }

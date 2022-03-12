@@ -34,7 +34,7 @@ namespace GenericStackTask
         /// number of elements copied.
         /// </summary>
         /// <param name="collection">The collection to copy elements from.</param>
-        public Stack(IEnumerable<T> collection)
+        public Stack(IEnumerable<T>? collection)
         {
             throw new NotImplementedException();
         }

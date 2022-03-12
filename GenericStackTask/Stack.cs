@@ -112,5 +112,7 @@ namespace GenericStackTask
         {
             throw new NotImplementedException();
         }
+        
+        //Add the necessary members to the class
     }
 }

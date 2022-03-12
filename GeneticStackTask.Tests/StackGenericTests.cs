@@ -3,9 +3,6 @@ using System.Linq;
 using GenericStackTask;
 using NUnit.Framework;
 
-#pragma warning disable SA1600
-#pragma warning disable CA1707
-
 namespace GeneticStackTask.Tests
 {
     [TestFixture(new[] { 12, 3, 4, int.MaxValue, int.MinValue, -12, 45, 12 }, 67, 8, TypeArgs = new Type[] { typeof(int) })]

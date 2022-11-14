@@ -1,4 +1,4 @@
-# Generic Stack
+# Generic Stack (in progress!)
 
 Intermediate level task for practice generic classes and interfaces. 
 
@@ -18,9 +18,10 @@ In this task you have to implement a class that represents a growable array base
 - Properties
     - The class sould have a public property `Count` to access the `count` field. The property sould have only the public get accessor.
 - Constructors
-    - The class must have a public parameterless constructor that must initialize a class object with default values. The default value for `count` field is `0`, the default value for `items` is an array with `DefaultCapacity` length, the default value for `version` is `0`.
-    - The class must have a public parameterless constructor that must initialize a class object with default values. The default value for `count` field is `0`, the default value for `items` is an array with `DefaultCapacity` length, the default value for `version` is `0`.
-    - The class must have a public parameterless constructor that must initialize a class object with default values. The default value for `count` field is `0`, the default value for `items` is an array with `DefaultCapacity` length, the default value for `version` is `0`.
+    - The class sould have a public parameterless constructor that must initialize a class object with default values. The default value for `count` field is `0`, the default value for `items` is an array with `DefaultCapacity` length, the default value for `version` is `0`.
+    - The class sould have a public constructor with `capacity` that initialize a initial capacity of the  `items` array.  The initial capacity
+must be a non-negative number.
+    - The class sould have a public constructor with `IEnumerable<T>?` parameter and fills a Stack with the contents of a particular collection. The default value for `count` field is `0`, the default value for `items` is an array with `DefaultCapacity` length, the default value for `version` is `0`.
 - Instance Methods
 
 

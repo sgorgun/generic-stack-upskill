@@ -16,9 +16,11 @@ In this task you have to implement a class that represents a growable array base
     - The class sould have a private field `version` to store an version of the stack object. The field type must be `int`. It using by enumerator.
     - The class sould have a private const field `DefaultCapacity` to store an default count of the inner array. The field type must be `int`. 
 - Properties
-    - The class sould have a public property `Count` to access the `count` field. The property must have only the public get accessor.
+    - The class sould have a public property `Count` to access the `count` field. The property sould have only the public get accessor.
 - Constructors
-    - The class must have a public parameterless constructor that must initialize a class object with default values. The default value for `count` field is `0`, the default value for `items` is an array with `DefaultCapacity`, the default value for `version` is `0`.
+    - The class must have a public parameterless constructor that must initialize a class object with default values. The default value for `count` field is `0`, the default value for `items` is an array with `DefaultCapacity` length, the default value for `version` is `0`.
+    - The class must have a public parameterless constructor that must initialize a class object with default values. The default value for `count` field is `0`, the default value for `items` is an array with `DefaultCapacity` length, the default value for `version` is `0`.
+    - The class must have a public parameterless constructor that must initialize a class object with default values. The default value for `count` field is `0`, the default value for `items` is an array with `DefaultCapacity` length, the default value for `version` is `0`.
 - Instance Methods
 
 

@@ -19,19 +19,12 @@ In this task you have to implement a class that represents a growable array base
     - The class sould have a public property `Count` to access the `count` field. The property sould have only the public get accessor.
 - Constructors
     - The class sould have a public parameterless constructor that must initialize a class object with default values. The default value for `count` field is `0`, the default value for `items` is an array with `DefaultCapacity` length, the default value for `version` is `0`.
-    - The class sould have a public constructor with `capacity` that initialize a initial capacity of the  `items` array.  The initial capacity
+    - The class sould have a public constructor with `capacity` that initialize a initial capacity of the `items` array. The initial capacity
 must be a non-negative number.
     - The class sould have a public constructor with `IEnumerable<T>?` parameter and fills a Stack with the contents of a particular collection. The default value for `count` field is `0`, the default value for `items` is an array with `DefaultCapacity` length, the default value for `version` is `0`.
 - Instance Methods
 
-
 The detailed explanations of the task are provided in the XML-comments for the methods and in test cases of unit tests.
-
-- Build a solution in Visual Studio. Make sure there are no compiler errors and warnings, fix these issues, and rebuild the solution.
-- Run all unit tests with Visual Studio and make sure there are no failed unit tests. Fix your code to make all tests GREEN.
-- Review all your changes in the codebase before staging the changes and creating a commit.
-- Stage your changes, create a commit, and publish your changes to the remote repository.
-
 
 ## Task Checklist
 

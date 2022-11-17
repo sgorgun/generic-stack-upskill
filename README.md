@@ -1,4 +1,4 @@
-# Generic Stack (in progress!)
+# Generic Stack
 
 Intermediate level task for practice generic classes and interfaces. 
 

@@ -25,9 +25,8 @@ should be a non-negative number. The value for `version` is `0`.
     - The class should have a public `Pop` method that removes and returns the object at the top of the stack. The `count` value decreases by one and `version` value increaces by one.
     - The class should have a public `Peek` method that returns the object at the top of the stack without removing it. The `count` and `version` values are not changed.
     - The class should have a public `ToArray` method that copies the elements of stack to a new array.
-    - The class should have a public `Contains` method that determines whether an element is in the stack. Compare items using the default equality comparer.
+    - The class should have a public `Contains` method that determines whether an element is in the stack. To compare items use the default equality comparer (`EqualityComparer<T>.Default`).
 - The class should be implement `IEnumerable<T>` interface. 
-
 
 The detailed explanations of the task are provided in the XML-comments for the methods and in test cases of unit tests.
 

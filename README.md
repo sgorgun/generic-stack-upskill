@@ -19,7 +19,7 @@ In this task you have to implement a class that represents a growable array base
     - The class should have a public parameter less constructor that initializes a class object with default values. The default value for `count` field is `0`, the default value for `items` is an empty array with length `0`, the default value for `version` is `0`.
     - The class should have a public constructor with `capacity` that initializes a initial capacity of the `items` array. The initial capacity
 should be a non-negative number. The value for `version` is `0`.
-    - The class should have a public constructor with `IEnumerable<T>?` parameter and fills a stack with the content of a particular collection. The value for `version` is `0`.
+    - The class should have a public constructor with `IEnumerable<T>?` parameter and fills a stack with the content of a particular collection.
 - Instance Methods
     - The class should have a public `Push` method that inserts an object at the top of the stack. The `count` and `version` values increase by one.
     - The class should have a public `Pop` method that removes and returns the object at the top of the stack. The `count` value decreases by one and `version` value increaces by one.

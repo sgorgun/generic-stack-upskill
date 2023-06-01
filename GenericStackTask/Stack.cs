@@ -6,12 +6,13 @@ namespace GenericStackTask
 {
     /// <summary>
     /// Represents extendable last-in-first-out (LIFO) collection of the specified type T.
+    /// Internally it is implemented as an array, so Push can be O(n). Pop is O(1).
     /// </summary>
     /// <typeparam name="T">Specifies the type of elements in the stack.</typeparam>
     public class Stack<T> : IEnumerable<T>
     {
         /// <summary>
-        /// Initializes a new instance of the stack class that is empty and has the default initial capacity.
+        /// Initializes a new instance of the <see cref="Stack{T}"/> class class that is empty and has the default initial capacity.
         /// </summary>
         public Stack()
         {
@@ -19,8 +20,7 @@ namespace GenericStackTask
         }
 
         /// <summary>
-        /// Initializes a new instance of the stack class that is empty and has
-        /// the specified initial capacity.
+        /// Initializes a new instance of the <see cref="Stack{T}"/> class that is empty and has the specified initial capacity.
         /// </summary>
         /// <param name="capacity">The initial number of elements of stack.</param>
         public Stack(int capacity)
@@ -29,9 +29,8 @@ namespace GenericStackTask
         }
 
         /// <summary>
-        /// Initializes a new instance of the stack class that contains elements copied
-        /// from the specified collection and has sufficient capacity to accommodate the
-        /// number of elements copied.
+        /// Initializes a new instance of the <see cref="Stack{T}"/> class that contains elements copied
+        /// from the specified collection and has sufficient capacity to accommodate the  number of elements copied.
         /// </summary>
         /// <param name="collection">The collection to copy elements from.</param>
         public Stack(IEnumerable<T>? collection)
@@ -72,10 +71,10 @@ namespace GenericStackTask
             throw new NotImplementedException();
         }
 
-       /// <summary>
-       /// Copies the elements of stack to a new array.
-       /// </summary>
-       /// <returns>A new array containing copies of the elements of the stack.</returns>
+        /// <summary>
+        /// Copies the elements of stack to a new array.
+        /// </summary>
+        /// <returns>A new array containing copies of the elements of the stack.</returns>
         public T[] ToArray()
         {
             throw new NotImplementedException();
@@ -112,7 +111,7 @@ namespace GenericStackTask
         {
             throw new NotImplementedException();
         }
-        
+
         //Add the necessary members to the class
     }
 }

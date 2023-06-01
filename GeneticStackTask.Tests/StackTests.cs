@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
-using GenericStackTask;
 using NUnit.Framework;
 
-namespace GeneticStackTask.Tests
+namespace GenericStackTask.Tests
 {
     [TestFixture(new[] { 12, 3, 4, int.MaxValue, int.MinValue, -12, 45, 12 }, 67, 8, TypeArgs = new Type[] { typeof(int) })]
     [TestFixture(new[] { 0.362, 3.0987, -198.4, -1008245.78, 9012.0001 }, 0.8911, 5, TypeArgs = new Type[] { typeof(double) })]
@@ -11,7 +10,8 @@ namespace GeneticStackTask.Tests
     [TestFixture(new[] { "12", "Zero", null, "Test", "Hello", null }, null, 6, TypeArgs = new Type[] { typeof(string) })]
     [TestFixture(new[] { 'a', '\n', '4', '5' }, '\t', 4, TypeArgs = new Type[] { typeof(char) })]
     [TestFixture(new[] { true, false, true, true }, false, 4, TypeArgs = new Type[] { typeof(bool) })]
-    public class StackGenericTests<T>
+    [TestFixture(new int[] { }, 3, 0, TypeArgs = new Type[] { typeof(int) })]
+    public class StackTests<T>
     {
         private const int someValue = 3;
         private readonly Stack<T> stack;
@@ -19,7 +19,7 @@ namespace GeneticStackTask.Tests
         private readonly T value;
         private readonly int initCount;
 
-        public StackGenericTests(T[] source, T value, int count)
+        public StackTests(T[] source, T value, int count)
         {
             this.stack = new Stack<T>(source);
             this.value = value;

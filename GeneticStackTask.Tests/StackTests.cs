@@ -18,7 +18,7 @@ public class StackTests<T>
     private readonly T peek;
     private readonly T value;
     private readonly int initCount;
-    private Stack<T> stack;
+    private Stack<T> stack = null!;
 
     public StackTests(T[] source, int count, T peek, T value)
     {

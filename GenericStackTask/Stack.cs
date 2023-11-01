@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace GenericStackTask
 {
@@ -11,13 +14,14 @@ namespace GenericStackTask
     /// <typeparam name="T">Specifies the type of elements in the stack.</typeparam>
     public class Stack<T> : IEnumerable<T>
     {
+        private T[] items;
+        private int count;
+        private int version;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Stack{T}"/> class class that is empty and has the default initial capacity.
         /// </summary>
-        public Stack()
-        {
-            throw new NotImplementedException();
-        }
+        public Stack() => this.items = Array.Empty<T>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Stack{T}"/> class that is empty and has the specified initial capacity.
@@ -25,7 +29,7 @@ namespace GenericStackTask
         /// <param name="capacity">The initial number of elements of stack.</param>
         public Stack(int capacity)
         {
-            throw new NotImplementedException();
+            this.items = capacity < 0 ? throw new ArgumentOutOfRangeException(nameof(capacity), "Capacity cannot be negative.") : new T[capacity];
         }
 
         /// <summary>
@@ -35,13 +39,23 @@ namespace GenericStackTask
         /// <param name="collection">The collection to copy elements from.</param>
         public Stack(IEnumerable<T>? collection)
         {
-            throw new NotImplementedException();
+            if (collection is null)
+            {
+                throw new ArgumentNullException(nameof(collection), "Collection cannot be null");
+            }
+
+            this.items = new T[4];
+
+            foreach (T? item in collection)
+            {
+                this.Push(item);
+            }
         }
 
         /// <summary>
         /// Gets the number of elements contained in the stack.
         /// </summary>
-        public int Count => throw new NotImplementedException();
+        public int Count => this.count;
 
         /// <summary>
         /// Removes and returns the object at the top of the stack.
@@ -49,17 +63,20 @@ namespace GenericStackTask
         /// <returns>The object removed from the top of the stack.</returns>
         public T Pop()
         {
-            throw new NotImplementedException();
+            if (this.count == 0)
+            {
+                throw new InvalidOperationException("Invalid operation pop, stack is empty.");
+            }
+
+            this.version++;
+            return this.items[--this.count];
         }
 
         /// <summary>
         /// Returns the object at the top of the stack without removing it.
         /// </summary>
         /// <returns>The object at the top of the stack.</returns>
-        public T Peek()
-        {
-            throw new NotImplementedException();
-        }
+        public T Peek() => this.items[this.count - 1];
 
         /// <summary>
         /// Inserts an object at the top of the stack.
@@ -68,7 +85,13 @@ namespace GenericStackTask
         /// The value can be null for reference types.</param>
         public void Push(T item)
         {
-            throw new NotImplementedException();
+            if (this.count == this.items.Length)
+            {
+                Array.Resize(ref this.items, this.items.Length * 2);
+            }
+
+            this.items[this.count++] = item;
+            this.version++;
         }
 
         /// <summary>
@@ -77,7 +100,13 @@ namespace GenericStackTask
         /// <returns>A new array containing copies of the elements of the stack.</returns>
         public T[] ToArray()
         {
-            throw new NotImplementedException();
+            var newArray = new T[this.count];
+            for (int i = 0, j = this.count - 1; j >= 0; i++, j--)
+            {
+                newArray[i] = this.items[j];
+            }
+
+            return newArray;
         }
 
         /// <summary>
@@ -87,7 +116,15 @@ namespace GenericStackTask
         /// <returns>Return true if item is found in the stack; otherwise, false.</returns>
         public bool Contains(T item)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < this.count; i++)
+            {
+                if (EqualityComparer<T>.Default.Equals(this.items[i], item))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -95,7 +132,14 @@ namespace GenericStackTask
         /// </summary>
         public void Clear()
         {
-            throw new NotImplementedException();
+            Array.Clear(this.items, 0, this.count);
+            this.count = 0;
+            this.version++;
+
+            if (this.items.Length > 4)
+            {
+                Array.Resize(ref this.items, 4);
+            }
         }
 
         /// <summary>
@@ -104,14 +148,14 @@ namespace GenericStackTask
         /// <returns>Return Enumerator object for the stack.</returns>
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            int initialVersion = this.version;
+            for (int i = this.count - 1; i >= 0; i--)
+            {
+                yield return initialVersion != this.version ? throw new InvalidOperationException("Collection was modified; enumeration operation may not execute") : this.items[i];
+            }
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        //Add the necessary members to the class
+        /// <inheritdoc/>
+        IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
     }
 }
